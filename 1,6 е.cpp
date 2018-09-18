@@ -64,7 +64,15 @@ void slc::doorev(){
         for(int i = 0;i < this->r; i++ )
         for(int j = 0; j < this->r; j++ )
             copymass[i][j] = mass[i][j];
-
+       for(int j = 1; j < r; j++)
+       if(copymass[0][0]<copymass[j][0]){
+        buf1=copymass[j];
+        buf2=rev[j];
+        copymass[j]=copymass[0];
+        rev[j]=rev[0];
+        copymass[0]=buf1;
+        rev[0]=buf2;
+       }
     for(int i = 0; i < this->r; i++ ){
             if (i < r-1){
 
